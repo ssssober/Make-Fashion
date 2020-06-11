@@ -1,7 +1,7 @@
 Image Colorization
 
 I provide you how to do image colorization task in three ways.  
-Training:  
+Train:  
 (A)rgb--gray(train)--rgb(GT). 
 (B)rgb--Lab--gray(train)--ab(GT)--rgb. 
 (C)rgb--Lab--L(train)--ab(GT)--rgb  
