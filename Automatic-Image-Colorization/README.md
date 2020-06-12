@@ -17,13 +17,13 @@ Recently, deep convolutional neural networks has achieved remarkable success in 
 I provide you how to do image colorization task in two ways.  
 ![train](https://github.com/TheDetial/Make-Fashion/tree/master/Automatic-Image-Colorization/flows/train.png)
 Two different approaches are shown in the picture above. The core idea of both algorithms needs to use `Lab` color representation mode. The `L` component in the `Lab` color space is used to represent the brightness of pixels. The value range is [0-100], which means from pure black to pure white; `a` means the color representation from red to green, which ranges of [127, -128]; `b` means the color representation from yellow to blue, which ranges of [127, -128]. `RGB` is a device related color space. `Lab` mode is neither light dependent nor pigment dependent. It is not only a device independent color system, but also a color system based on physiological characteristics. This means that `Lab` color space is a digital way to describe human visual perception.  
-![train](flows/colorNet.png)  
+![colornet](https://github.com/TheDetial/Make-Fashion/tree/master/Automatic-Image-Colorization/flows/colorNet.png)  
 The algorithm flow of this paper firstly needs to transform `rgb` into `Lab` color space, then we need to separate the `L` and `ab` channels. 
 The `L` are taken as training data and `ab`	is GT. In flow chart 1, we use `gray` scale images to represent `L` approximately and use it as training data. The cnn model architecture used in this work is shown in the figure above which named as `ColorNet`.  
 
 ## Results  
 The RGB used in this work is from **[MIT-place](http://places.csail.mit.edu/)**. We used one of the sub-datasets, include Outdoor scenery, buildings, etc. The training dataset consists of 40000 images in total, and the test dataset consists of 1000 randomly selected images.
-![train](flows/results.png)  
+![results](https://github.com/TheDetial/Make-Fashion/tree/master/Automatic-Image-Colorization/flows/results.png)  
 Let's give three groups of comparative graphs here in th above picture. From the perspective of human visual effect, the CNN method in this project can color `gray-scale` image to make it have `RGB` color representation. At the same time, the result of the `flow chart 2` method is better than the former.
 
 ## Acknowledgement
