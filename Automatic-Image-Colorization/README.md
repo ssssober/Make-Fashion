@@ -28,7 +28,7 @@ Let's give three groups of comparative graphs here in th above picture. From the
 
 ## Defects
 1. Using `gray` instead of `L` for model training can solve the problem that any gray-scale images can used for testing, but the results are not good, which are worse than using `L` graph directly for model training.  
-2. ColorNet is similar to UNET using `Max-pooling` for down-sampling and `Convtranspose` for up-sampling. The disadvantages are as follows:
+2. ColorNet is similar to UNET using `Max-pooling` for down-sampling and `Convtranspose` for up-sampling. The disadvantages are as follows:  
 (1) Information is lost too much using `Max-pooling`, so we can consider using `conv` to realize the down-sampling;  
 (2) `Convtranspose` brings checkerboard phenomenon, which is especially serious when using `gray` graph training. It is uncertain whether it is caused by incomplete gray training, Because there is no Checkerboard phenomenon in `L` training;  
 (3) The training and testing completed is only at **[MIT-place](http://places.csail.mit.edu/)** including outdoor landscape and building map. We estimate that the color colorization of `gray` face image is not good, a set of face dataset needs to be applied for training;  
