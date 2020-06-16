@@ -26,5 +26,13 @@ The RGB used in this work is from **[MIT-place](http://places.csail.mit.edu/)**.
 ![results](https://github.com/TheDetial/Make-Fashion/tree/master/Automatic-Image-Colorization/flows/results.png)  
 Let's give three groups of comparative graphs here in th above picture. From the perspective of human visual effect, the CNN method in this project can color `gray-scale` image to make it have `RGB` color representation. At the same time, the result of the `flow chart 2` method is better than the former.
 
+## Defects
+1. Using `gray` instead of `L` for model training can solve the problem that any gray-scale images can used for testing, but the results are not good, which are worse than using `L` graph directly for model training.  
+2. ColorNet is similar to UNET using `Max-pooling` for down-sampling and `Convtranspose` for up-sampling. The disadvantages are as follows:
+(1) Information is lost too much using `Max-pooling`, so we can consider using `conv` to realize the down-sampling;  
+(2) `Convtranspose` brings checkerboard phenomenon, which is especially serious when using `gray` graph training. It is uncertain whether it is caused by incomplete gray training, Because there is no Checkerboard phenomenon in `L` training;  
+(3) The training and testing completed is only at **[MIT-place](http://places.csail.mit.edu/)** including outdoor landscape and building map. We estimate that the color colorization of `gray` face image is not good, a set of face dataset needs to be applied for training;  
+(4) The test results show that: for the light color systems such as green, light yellow, white and gray, the results are better, but for the red, blue and other dark color systems, the results are worse. The contrast of color `RGB` image is not high, and the whole image is dark; We guessed that it is related to the pre-processing of `ab` images before training, in order to ensure that it is not negative using `(ab_ Value + 128)/255`, the gamut distribution `ab` channels were artificially changed;
+
 ## Acknowledgement
 This work is mainly inspired by **[Automatic Colorization](https://tinyclouds.org/colorize/)**, **[colorful image colorization](https://arxiv.org/pdf/1603.08511.pdf)**, **[Colorize Photos](https://demos.algorithmia.com/colorize-photos)** and **[Instance-aware Image Colorization](https://deepai.org/publication/instance-aware-image-colorization)**.
